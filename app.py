@@ -13,8 +13,8 @@ bitbucket_model = joblib.load("bitbucket_model.pkl")
 def predict():
     data = request.json
     inputs = [
-        data['is_enterprise_encoded'],
         data['company_size_encoded'],
+        data['is_enterprise_encoded'],
         data['industry_education'], data['industry_energy'], data['industry_finance'], data['industry_healthcare'],
         data['industry_manufacturing'], data['industry_media'], data['industry_retail'], data['industry_software'],
         data['industry_telecom'], data['industry_transport'],
