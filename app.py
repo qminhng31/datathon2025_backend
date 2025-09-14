@@ -17,10 +17,10 @@ def predict():
 
     features = data.get("features", [])
 
-    jira_result = jira_model.predict([features])[0]
-    confluence_result = confluence_model.predict([features])[0]
-    trello_result = trello_model.predict([features])[0]
-    bitbucket_result = bitbucket_model.predict([features])[0]
+    jira_result = jira_model.predict(features)[0]
+    confluence_result = confluence_model.predict(features)[0]
+    trello_result = trello_model.predict(features)[0]
+    bitbucket_result = bitbucket_model.predict(features)[0]
 
     return jsonify({
         "Jira": str(jira_result),
