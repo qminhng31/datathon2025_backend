@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 import joblib
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Load models
 jira_model = joblib.load("jira_model.pkl")
@@ -12,7 +14,7 @@ bitbucket_model = joblib.load("bitbucket_model.pkl")
 @app.route("/predict", methods=["POST"])
 def predict():
     data = request.get_json()
-    
+
     features = data.get("features", [])
 
     jira_result = jira_model.predict([features])[0]
